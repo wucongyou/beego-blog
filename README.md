@@ -4,8 +4,7 @@ beego-blog
 ```
 cd $GOPATH/src
 git clone https://github.com/wucongyou/beego-blog
-mv beego-blog blog
-cd blog
+cd beego-blog
 go build
 ./blog
 ```

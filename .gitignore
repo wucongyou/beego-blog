@@ -1,5 +1,5 @@
 *.ipr
 *.iws
 *.iml
-blog
+beego-blog
 .DS_Store
