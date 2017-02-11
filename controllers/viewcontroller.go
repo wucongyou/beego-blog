@@ -3,7 +3,7 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"strconv"
-	"blog/models"
+	"beego-blog/models"
 )
 
 type ViewController struct {
