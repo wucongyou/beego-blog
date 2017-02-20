@@ -4,7 +4,6 @@ import (
 	"github.com/astaxie/beego"
 	"strconv"
 	"beego-blog/models"
-	"time"
 )
 
 type EditController struct {
@@ -24,7 +23,6 @@ func (this *EditController) Post() {
 	blog.Id, _ = strconv.Atoi(inputs.Get("id"))
 	blog.Title = inputs.Get("title")
 	blog.Content = inputs.Get("content")
-	blog.Created = time.Now()
-	models.SaveBlog(blog)
+	models.UpdateBlog(blog)
 	this.Ctx.Redirect(302, "/")
 }
