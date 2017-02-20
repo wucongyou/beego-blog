@@ -3,3 +3,4 @@
 *.iml
 beego-blog
 .DS_Store
+.idea

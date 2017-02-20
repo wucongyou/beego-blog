@@ -1,3 +1,7 @@
+CREATE DATABASE `test`
+  DEFAULT CHARACTER SET utf8
+  COLLATE utf8_general_ci;
+USE test;
 CREATE TABLE blog (
   id      INT AUTO_INCREMENT,
   title   TEXT,

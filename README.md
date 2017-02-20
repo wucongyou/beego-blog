@@ -1,6 +1,6 @@
 beego-blog
-======
-## how to run
+===
+## Quick Start
 ```
 cd $GOPATH/src
 git clone https://github.com/wucongyou/beego-blog
