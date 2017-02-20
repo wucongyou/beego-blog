@@ -20,7 +20,8 @@ func (this *NewController) Post() {
 	var blog models.Blog
 	blog.Title = inputs.Get("title")
 	blog.Content = inputs.Get("content")
-	blog.Created = time.Now()
+	blog.Ctime = time.Now()
+	blog.Mtime = time.Now()
 	models.SaveBlog(blog)
 	this.Ctx.Redirect(302, "/")
 }

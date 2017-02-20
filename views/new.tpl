@@ -1,6 +1,7 @@
-<h1>New Blog Post</h1>
+<h1>New</h1>
 <form action="" method="post">
-    标题:<input type="text" name="title"><br>
-    内容：<textarea name="content" colspan="3" rowspan="10"></textarea>
+    Title:<input type="text" name="title"><br>
+    Content：<textarea name="content" colspan="3" rowspan="10"></textarea>
+    <br/>
     <input type="submit">
 </form>

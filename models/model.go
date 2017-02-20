@@ -11,7 +11,8 @@ type Blog struct {
 	Id      int `PK`
 	Title   string
 	Content string
-	Created time.Time
+	Ctime   time.Time
+	Mtime   time.Time
 }
 
 func GetLink() beedb.Model {
@@ -32,6 +33,15 @@ func GetAll() (blogs []Blog) {
 func GetBlog(id int) (blog Blog) {
 	db := GetLink()
 	db.Where("id=?", id).Find(&blog)
+	return
+}
+
+func UpdateBlog(blog Blog) (id int64, err error) {
+	db := GetLink()
+	props := make(map[string]interface{}, 0)
+	props["title"] = blog.Title
+	props["content"] = blog.Content
+	id, err = db.Update(props)
 	return
 }
 
