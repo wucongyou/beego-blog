@@ -8,7 +8,7 @@ import (
 )
 
 type Blog struct {
-	Id      int `PK`
+	Id      int
 	Title   string
 	Content string
 	Ctime   time.Time
@@ -37,22 +37,22 @@ func GetBlog(id int) (blog Blog) {
 }
 
 func UpdateBlog(blog Blog) (id int64, err error) {
-	db := GetLink()
+	orm := GetLink()
 	props := make(map[string]interface{}, 0)
 	props["title"] = blog.Title
 	props["content"] = blog.Content
-	id, err = db.Update(props)
+	orm.SetTable("blog").Update(props)
 	return
 }
 
 func SaveBlog(blog Blog) (bg Blog) {
-	db := GetLink()
-	db.Save(&blog)
+	orm := GetLink()
+	orm.Save(&blog)
 	return bg
 }
 
 func DelBlog(blog Blog) {
-	db := GetLink()
-	db.Delete(&blog)
+	orm := GetLink()
+	orm.SetTable("blog").Where("id=?", blog.Id).DeleteRow()
 	return
 }
