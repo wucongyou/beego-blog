@@ -41,7 +41,7 @@ func UpdateBlog(blog Blog) (id int64, err error) {
 	props := make(map[string]interface{}, 0)
 	props["title"] = blog.Title
 	props["content"] = blog.Content
-	orm.SetTable("blog").Update(props)
+	orm.SetTable("blog").Where("id=?", blog.Id).Update(props)
 	return
 }
 
