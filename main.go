@@ -5,6 +5,7 @@ import (
 
 	_ "beego-blog/routers"
 
+	"fmt"
 	"github.com/astaxie/beedb"
 	"github.com/astaxie/beego"
 )
@@ -14,11 +15,12 @@ var (
 )
 
 func init() {
-	flag.BoolVar(&debug, "debug", true, "debug switch")
+	flag.BoolVar(&debug, "debug", true, "beedb debug switch")
 }
 
 func main() {
 	flag.Parse()
+	fmt.Println("debug: ", debug)
 	beedb.OnDebug = debug
 	beego.Run()
 }
