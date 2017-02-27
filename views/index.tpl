@@ -3,10 +3,10 @@
 <ul>
     {{range .blogs}}
     <li>
-        <a href="/view/{{.Id}}">{{.Title}}</a>
-        last update on {{.Mtime.Format "2006-01-02 15:04:05"}}
-        <a href="/edit/{{.Id}}">Edit</a>
-        <a href="/delete/{{.Id}}">Delete</a>
+        <a href="/view/{{.Id}}"><b>{{.Title}}</b></a>
+        <i>last update on {{.Mtime.Format "2006-01-02 15:04:05"}}</i>
+        <a href="/edit/{{.Id}}">edit</a>
+        <a href="/delete/{{.Id}}">delete</a>
     </li>
     {{end}}
 </ul>
