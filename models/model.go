@@ -25,14 +25,14 @@ func GetLink() beedb.Model {
 }
 
 func GetAll() (blogs []Blog) {
-	db := GetLink()
-	db.FindAll(&blogs)
+	orm := GetLink()
+	orm.OrderBy("mtime desc").FindAll(&blogs)
 	return
 }
 
 func GetBlog(id int) (blog Blog) {
-	db := GetLink()
-	db.Where("id=?", id).Find(&blog)
+	orm := GetLink()
+	orm.Where("id=?", id).Find(&blog)
 	return
 }
 
