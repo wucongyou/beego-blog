@@ -1,28 +1,30 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
 	"strconv"
+
 	"beego-blog/models"
+
+	"github.com/astaxie/beego"
 )
 
 type EditController struct {
 	beego.Controller
 }
 
-func (this *EditController) Get() {
-	id, _ := strconv.Atoi(this.Ctx.Input.Param(":id"))
-	this.Data["Post"] = models.GetBlog(id)
-	this.Layout = "layout.tpl"
-	this.TplName = "edit.tpl"
+func (c *EditController) Get() {
+	id, _ := strconv.Atoi(c.Ctx.Input.Param(":id"))
+	c.Data["Post"] = models.GetBlog(id)
+	c.Layout = "layout.tpl"
+	c.TplName = "edit.tpl"
 }
 
-func (this *EditController) Post() {
-	inputs := this.Input()
+func (c *EditController) Post() {
+	params := c.Input()
 	var blog models.Blog
-	blog.Id, _ = strconv.Atoi(inputs.Get("id"))
-	blog.Title = inputs.Get("title")
-	blog.Content = inputs.Get("content")
+	blog.Id, _ = strconv.Atoi(params.Get("id"))
+	blog.Title = params.Get("title")
+	blog.Content = params.Get("content")
 	models.UpdateBlog(blog)
-	this.Ctx.Redirect(302, "/")
+	c.Ctx.Redirect(302, "/")
 }

@@ -2,6 +2,7 @@ package routers
 
 import (
 	"beego-blog/controllers"
+
 	"github.com/astaxie/beego"
 )
 

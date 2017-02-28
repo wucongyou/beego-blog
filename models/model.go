@@ -53,6 +53,7 @@ func SaveBlog(blog Blog) (bg Blog) {
 
 func DelBlog(blog Blog) {
 	orm := GetLink()
+	orm.Delete(&blog)
 	orm.SetTable("blog").Where("id=?", blog.Id).DeleteRow()
 	return
 }

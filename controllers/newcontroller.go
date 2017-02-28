@@ -1,27 +1,29 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
-	"beego-blog/models"
 	"time"
+
+	"beego-blog/models"
+
+	"github.com/astaxie/beego"
 )
 
 type NewController struct {
 	beego.Controller
 }
 
-func (this *NewController) Get() {
-	this.Layout = "layout.tpl"
-	this.TplName = "new.tpl"
+func (c *NewController) Get() {
+	c.Layout = "layout.tpl"
+	c.TplName = "new.tpl"
 }
 
-func (this *NewController) Post() {
-	inputs := this.Input()
+func (c *NewController) Post() {
+	params := c.Input()
 	var blog models.Blog
-	blog.Title = inputs.Get("title")
-	blog.Content = inputs.Get("content")
+	blog.Title = params.Get("title")
+	blog.Content = params.Get("content")
 	blog.Ctime = time.Now()
 	blog.Mtime = time.Now()
 	models.SaveBlog(blog)
-	this.Ctx.Redirect(302, "/")
+	c.Ctx.Redirect(302, "/")
 }

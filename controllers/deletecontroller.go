@@ -1,19 +1,21 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
 	"strconv"
+
 	"beego-blog/models"
+
+	"github.com/astaxie/beego"
 )
 
 type DeleteController struct {
 	beego.Controller
 }
 
-func (this *DeleteController) Get() {
-	id, _ := strconv.Atoi(this.Ctx.Input.Param(":id"))
+func (c *DeleteController) Get() {
+	id, _ := strconv.Atoi(c.Ctx.Input.Param(":id"))
 	blog := models.GetBlog(id)
-	this.Data["Post"] = blog
+	c.Data["Post"] = blog
 	models.DelBlog(blog)
-	this.Ctx.Redirect(302, "/")
+	c.Ctx.Redirect(302, "/")
 }

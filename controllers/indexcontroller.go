@@ -1,16 +1,17 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
 	"beego-blog/models"
+
+	"github.com/astaxie/beego"
 )
 
 type IndexController struct {
 	beego.Controller
 }
 
-func (this *IndexController) Get() {
-	this.Data["blogs"] = models.GetAll()
-	this.Layout = "layout.tpl"
-	this.TplName = "index.tpl"
+func (c *IndexController) Get() {
+	c.Data["blogs"] = models.GetAll()
+	c.Layout = "layout.tpl"
+	c.TplName = "index.tpl"
 }

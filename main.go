@@ -2,10 +2,10 @@ package main
 
 import (
 	"flag"
+	"fmt"
 
 	_ "beego-blog/routers"
 
-	"fmt"
 	"github.com/astaxie/beedb"
 	"github.com/astaxie/beego"
 )
